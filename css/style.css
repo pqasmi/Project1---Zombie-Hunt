@@ -1,0 +1,50 @@
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    text-align: left;
+    color: red;
+    background-color: black;
+    margin: 20px;
+}
+
+body {
+	background-color: black;
+    /* display: inline-flex; */
+}
+
+#screen {
+    height: 500px;
+    width: 700px;
+    background: url(../images/apoc.jpeg);
+    background-size: cover;
+    border-radius: 0%;
+    cursor: url(../images/cursor.jpeg) 12 12 auto;
+    margin-bottom: 23px;
+    margin-top: 25px;
+}
+#row1,
+#row2,
+#row3,
+#row4,
+#row5
+ {
+    height: 100px;
+    width: 600px;
+}
+#reload,
+#ammo,
+#timer,
+#score {
+	font-family: 'Press Start 2P', cursive;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(0, 255, 106);
+    text-align: center;
+    background-color: rgba(255, 136, 0, 0.7);
+    border: solid 5px rgb(255, 0, 119);
+    height: 65px;
+    width: 135px;
+    border-radius: 90%;
+    margin: 15px 15px 15px 15px;
+    font-size: 12px;
+}
