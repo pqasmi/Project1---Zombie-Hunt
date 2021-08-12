@@ -10,6 +10,20 @@ body {
 	background-color: black;
     display: inline-flex;
 }
+#messageBoard {
+    height: 50px;
+    width: 800px;
+    background: rgb(167, 133, 89);
+    color: red
+    background-size: cover;
+    border-radius: 25px;
+    cursor: url() 67 67 auto;
+    margin-bottom: 23px;
+    margin-top: 25px;
+    margin-left: 20px;
+    border: solid red;
+}
+
 
 #screen {
     height: 400px;
@@ -17,7 +31,7 @@ body {
     background: url(../images/apoc.jpeg);
     background-size: cover;
     border-radius: 10%;
-    cursor: url() 67 67 auto;
+    cursor: url(../images/curs.png) 17 17 auto;
     margin-bottom: 23px;
     margin-top: 25px;
     margin-left: 20px;
@@ -34,7 +48,7 @@ body {
 }
 #restart,
 #start,
-#reload,
+#getAmmo,
 #ammo,
 #timer,
 #score {
@@ -42,9 +56,9 @@ body {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    color: rgb(0, 255, 106);
+    color: rgb(229, 255, 0);
     text-align: center;
-    background-color: rgba(255, 136, 0, 0.514);
+    background-color: rgba(255, 13, 0, 0.514);
     border: solid 5px red;
     height: 95px;
     width: 125px;
@@ -53,10 +67,12 @@ body {
     font-size: 12px;
 }
 
+
+
 #cowboy {
     height: 50px;
     width: 35px;
-   margin: 25px 0 25px 25px;
+    margin: 25px 0 25px 25px;
 }
 
 #zombie1,
@@ -68,4 +84,8 @@ body {
     float: right;
     margin: 25px 45px 25px 0;
 
+}
+
+#stats {
+    width: 900px;
 }
