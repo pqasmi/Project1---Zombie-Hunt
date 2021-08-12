@@ -37,8 +37,43 @@ function game () {
     console.log("game on")
     setInterval(beginTimer, 1000)
     shots = 5
+    moveRight()
+ 
   
 }
+function moveRight () {
+    let image = document.querySelector("#zombie1")
+    console.log(image)
+    let pos = 45
+    let move = setInterval(() => {
+            image.style.marginRight = pos + "px"
+            pos++
+            if (pos >= 700) {
+                clearInterval(move)
+                moveLeft()
+            }
+        }
+        , 15)
+}
+
+function moveLeft () {
+    let image = document.querySelector("#zombie1")
+    console.log(image)
+    let pos = 700
+    let move = setInterval(() => {
+        image.style.marginRight = pos + "px"
+        pos--
+        if (pos <= 45) {
+            clearInterval(move)
+            moveRight()
+        
+        }
+    }
+    , 15)
+}
+
+
+
 function helloMessage () {
     console.log("hello User")
     let helloUser = document.querySelector("#messageBoard")
@@ -53,6 +88,7 @@ function beginTimer () {
     if (gameTimer < 30) {
         console.log(gameTimer)
         gameTimer++
+        
         let timerStart = document.querySelector("#timer")
         timerStart.innerText = `Timer: ${gameTimer}`
         let shotsSelector = document.querySelector("#ammo")
@@ -62,9 +98,11 @@ function beginTimer () {
     } else {
         clearInterval(gameTimer = 30)
         if (timer = 30 && coins >= 15) {
+            clearInterval(move)
             alert("user won!!") 
             alert = function() {};
         } else {
+            clearInterval(move)
             alert ("user lost!!")
             alert = function() {};
         }
@@ -72,17 +110,13 @@ function beginTimer () {
 
 }
 
-// function zombieShow () {
-//     zombie1.innerHTML = src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQHj-FTZUT1nt7qVtvkyY9VsCgDnFplqex3g&usqp=CAU"
-// }
-
 function reloadShots () {
     if (coins >= 3) {
     shots = shots + 5
     coins = coins - 3
-    let shotsSelector = document.querySelector("#ammo")
+    // let shotsSelector = document.querySelector("#ammo")
     shotsSelector.innerText = `Shots: ${shots}`
-    let coinBoard = document.querySelector("#score")
+    // let coinBoard = document.querySelector("#score")
     coinBoard.innerText = `Coins: ${coins}`
     }
 
@@ -97,9 +131,9 @@ function successHit (e) {
     deadZombie(e)
     coins++
     shots--
-    let coinBoard = document.querySelector("#score")
+    // let coinBoard = document.querySelector("#score")
     coinBoard.innerText = `Coins: ${coins}`
-    let shotsSelector = document.querySelector("#ammo")
+    // let shotsSelector = document.querySelector("#ammo")
     shotsSelector.innerText = `Shots: ${shots}`
     }
 
@@ -113,17 +147,6 @@ function deadZombie (e) {
     targetZombie.style.display = 'none'
     setTimeout(()=> {targetZombie.style.display = 'block'}, 2000)
 }
-
-
-// function newZombie (e) {
-//     console.log(e.target)
-//     let zombieBirth = e.target
-//     zombieBirth.style.display = 'block'
-//     // let zombieBirth = document.querySelector("#zombie1")
-//     // zombieBirth.style.display = 'block'
-
-// }
-
 
 class Game {
 constructor (name, ) {

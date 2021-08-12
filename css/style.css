@@ -3,9 +3,16 @@ h1 {
     text-align: left;
     color: red;
     background-color: black;
-    margin: 20px 0 0 200px;
+    margin: 20px 0 39px 130px;
 }
-
+#logo {
+    height: 75px;
+    width: 95px;
+    float: left;
+    padding-right: 30px;
+    margin-top: -18px
+ 
+}
 body {
 	background-color: black;
     display: inline-flex;
@@ -13,8 +20,8 @@ body {
 #messageBoard {
     height: 50px;
     width: 800px;
-    background: rgb(167, 133, 89);
-    color: red
+    background: yellow;
+    color: red;
     background-size: cover;
     border-radius: 25px;
     cursor: url() 67 67 auto;
@@ -89,3 +96,4 @@ body {
 #stats {
     width: 900px;
 }
+
