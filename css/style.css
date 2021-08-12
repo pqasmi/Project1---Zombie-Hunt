@@ -29,9 +29,11 @@ body {
 #row4
  {
     height: 133px;
-    width: 600px;
-    display: block;
+    width: 800px;
+    /* display: block; */
 }
+#restart,
+#start,
 #reload,
 #ammo,
 #timer,
@@ -44,10 +46,10 @@ body {
     text-align: center;
     background-color: rgba(255, 136, 0, 0.514);
     border: solid 5px red;
-    height: 65px;
-    width: 155px;
+    height: 95px;
+    width: 125px;
     border-radius: 90%;
-    margin: 5px 15px 15px 27px;
+    margin: 5px 55px 15px 87px;
     font-size: 12px;
 }
 
@@ -55,4 +57,15 @@ body {
     height: 50px;
     width: 35px;
    margin: 25px 0 25px 25px;
+}
+
+#zombie1,
+#zombie2,
+#zombie3 {
+
+    height: 50px;
+    width: 35px;
+    float: right;
+    margin: 25px 45px 25px 0;
+
 }
