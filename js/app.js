@@ -37,8 +37,18 @@ function game () {
     console.log("game on")
     setInterval(beginTimer, 1000)
     shots = 5
+  
 }
+function helloMessage () {
+    console.log("hello User")
+    let helloUser = document.querySelector("#messageBoard")
+    helloUser.innerText = "Hello User, Game Started, Hunt Zomombies !!"
+    helloUser.style.color = "yellow"
+    helloUser.style.textAlign = "center"
+    helloUser.style.fontSize = "20px"
+    // helloUser.style.font = "Press Start 2P"
 
+}
 function beginTimer () {
     if (gameTimer < 30) {
         console.log(gameTimer)
@@ -47,7 +57,8 @@ function beginTimer () {
         timerStart.innerText = `Timer: ${gameTimer}`
         let shotsSelector = document.querySelector("#ammo")
         shotsSelector.innerText = `Shots: ${shots}`
-        zombieShow()
+        // zombieShow()
+        helloMessage()
     } else {
         clearInterval(gameTimer = 30)
         if (timer = 30 && coins >= 15) {
@@ -81,9 +92,9 @@ function restart () {
     location.reload();
 }
 
-function successHit () {
+function successHit (e) {
     if (shots > 0) {
-    deadZombie()
+    deadZombie(e)
     coins++
     shots--
     let coinBoard = document.querySelector("#score")
@@ -94,11 +105,25 @@ function successHit () {
 
 }
 
-function deadZombie () {
+function deadZombie (e) {
     console.log("remove image")
-    let row1 = document.querySelector("#row1")
-    row1.removeChild(row1.childNodes[1])
+    console.log(e.target)
+    let targetZombie = e.target
+    // removeZombie.removeChild(removeZombie.childNodes[1])
+    targetZombie.style.display = 'none'
+    setTimeout(()=> {targetZombie.style.display = 'block'}, 2000)
 }
+
+
+// function newZombie (e) {
+//     console.log(e.target)
+//     let zombieBirth = e.target
+//     zombieBirth.style.display = 'block'
+//     // let zombieBirth = document.querySelector("#zombie1")
+//     // zombieBirth.style.display = 'block'
+
+// }
+
 
 class Game {
 constructor (name, ) {
