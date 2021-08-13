@@ -3,14 +3,14 @@ h1 {
     text-align: left;
     color: red;
     background-color: black;
-    margin: 20px 0 39px 130px;
+    margin: 10px 0 10px 130px;
 }
 #logo {
-    height: 75px;
-    width: 95px;
+    height: 55px;
+    width: 115px;
     float: left;
     padding-right: 10px;
-    margin-top: -18px
+    margin-top: -15px
  
 }
 body {
@@ -65,10 +65,10 @@ body {
     text-align: center;
     background-color: rgba(255, 13, 0, 0.514);
     border: solid 5px red;
-    height: 95px;
+    height: 35px;
     width: 125px;
-    border-radius: 90%;
-    margin: 5px 55px 15px 87px;
+    border-radius: 25%;
+    margin: 10px 45px 15px 77px;
     font-size: 12px;
 }
 #restart,
@@ -82,11 +82,11 @@ body {
     text-align: center;
     background-color: rgba(255, 13, 0, 0.514);
     border: solid 5px red;
-    height: 55px;
-    width: 55px;
-    border-radius: 90%;
-    margin: 15px 55px 15px 123px;
-    font-size: 8px;
+    height: 35px;
+    width: 125px;
+    border-radius: 20%;
+    margin: 15px 25px 15px 93px;
+    font-size: 12px;
 }
 
 
@@ -100,8 +100,8 @@ body {
 #zombie2,
 #zombie3 {
 
-    height: 50px;
-    width: 35px;
+    height: 70px;
+    width: 75px;
     float: right;
     margin: 25px 45px 25px 0;
 

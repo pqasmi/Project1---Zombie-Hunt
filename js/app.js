@@ -3,15 +3,15 @@ let gameTimer = 0
 let shots = 0
 let coins = 0
 
-// scoreboard values set to zero
+// Initialise the variables for scoreboard and set values to zero
 let coinBoard = document.querySelector("#score")
-coinBoard.innerText = `Coins: ${0}`
+coinBoard.innerText = `Coins: ${coins}`
 let shotsSelector = document.querySelector("#ammo")
 shotsSelector.innerText = `Shots: ${shots}`
 let timerStart = document.querySelector("#timer")
 timerStart.innerText = `Timer: ${gameTimer}`
 
-//EventListeners for clicks
+//Initialise the global scope variables for game controls and assign add event listeners
 let reload = document.querySelector("#getAmmo")
 reload.addEventListener('click', reloadShots)
 let gameStart = document.querySelector("#start")
@@ -19,7 +19,7 @@ gameStart.addEventListener('click', game)
 let gameReload = document.querySelector("#restart")
 gameReload.addEventListener('click', restart)
 
-//Event listeners for Zombies
+//Event listeners for Zombies and event listeners for a successful hit.
 let zombie1 = document.querySelector("#zombie1")
 zombie1.style.display = 'none'
 zombie1.addEventListener('click', successHit)
@@ -32,21 +32,34 @@ let zombie3 = document.querySelector("#zombie3")
 zombie3.style.display = 'none'
 zombie3.addEventListener('click', successHit)
 
+let player = document.querySelector("#cowboy")
+player.style.display = 'none'
+
+//Add audio clip to my
+let audioShot = new Audio('audio/shot.m4a')
+let audioEmptyBarrel = new Audio('audio/emptygun.m4a')
+let audioZombie = new Audio('audio/zom.m4a')
+let audioThunder = new Audio('audio/thunder.m4a')
+
 //Game Begins
 function game () {
-    setInterval(beginTimer, 200)
-    shots = 5
-    moveRight1()
-    moveRight2()
-    moveRight3()
+    audioThunder.play()
+    shots = 5 // initially plater will have 5 shots.
+    setInterval(beginTimer, 1000)
+    setTimeout(moveRight1, 1000)
+    setTimeout(moveRight2, 2000)
+    setTimeout(moveRight3, 4000)
+    
 }
 
 function moveRight1 () {
     zombie1.style.display = 'block'
+    audioZombie.play()
     let pos1 = 0
     let move1 = setInterval(() => {
             zombie1.style.marginRight = pos1 + "px"
             pos1++
+            
             if (pos1 > 700) {
                 clearInterval(move1)
                 zombie1.style.display = 'none'
@@ -54,13 +67,13 @@ function moveRight1 () {
             } else if (gameTimer>30) {
                 clearInterval(move1)
             }
-        }, 6) 
+        }, 9) 
     }
 
 function moveRightAgain1 () {
     if (gameTimer < 30) {
     moveRight1() } else {
-        clearInterval(move1)
+        clearInterval(gametimer==30)
     }
 }
 
@@ -77,7 +90,7 @@ function moveRight2 () {
             } else if (gameTimer>30) {
                 clearInterval(move2)
             }
-        }, 4) 
+        }, 7) 
     }
 
 function moveRightAgain2 () {
@@ -125,23 +138,20 @@ function beginTimer () {
         gameTimer++
         let timerStart = document.querySelector("#timer")
         timerStart.innerText = `Timer: ${gameTimer}`
-        let shotsSelector = document.querySelector("#ammo")
         shotsSelector.innerText = `Shots: ${shots}`
-        // zombieShow()
-        // helloMessage()
     } else {
         clearInterval(gameTimer = 30)
         if (gameTimer = 30 && coins >= 15) {
+            restart()
             alert("user won!!") 
             alert = function() {}
-            restart()
+            
         } else {
+            restart()
             alert ("user lost!!")
             alert = function() {}
-            restart();
         }
     }
-
 }
 
 function reloadShots () {
@@ -161,17 +171,18 @@ function restart () {
 function successHit (e) {
     if (shots > 0) {
     deadZombie(e)
+    audioShot.play();
     coins++
     shots--
     coinBoard.innerText = `Coins: ${coins}`
     shotsSelector.innerText = `Shots: ${shots}`
+    } else {
+        audioEmptyBarrel.play()
     }
 
 }
 
 function deadZombie (e) {
-    console.log("remove image")
-    console.log(e.target)
     let targetZombie = e.target
     targetZombie.style.display = 'none'
     setTimeout(()=> {targetZombie.style.display = 'block'}, 3000)
@@ -185,6 +196,5 @@ constructor (name, ) {
 
 }
 
-let player = new Game
 
 
