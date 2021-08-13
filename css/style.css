@@ -9,7 +9,7 @@ h1 {
     height: 75px;
     width: 95px;
     float: left;
-    padding-right: 30px;
+    padding-right: 10px;
     margin-top: -18px
  
 }
@@ -35,12 +35,12 @@ body {
 #screen {
     height: 400px;
     width: 800px;
-    background: url(../images/apoc.jpeg);
+    background: url(https://slm-assets.secondlife.com/assets/21423963/original/gif___The_War_of_the_Elements_-_Apocalyptic_City_V1.gif?1535436431);
     background-size: cover;
-    border-radius: 10%;
-    cursor: url(../images/curs.png) 17 17 auto;
-    margin-bottom: 23px;
-    margin-top: 25px;
+    border-radius: 13%;
+    cursor: url(https://image.flaticon.com/icons/png/128/3207/3207593.png) 37 37, auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
     margin-left: 20px;
     border: solid red;
 }
@@ -53,9 +53,7 @@ body {
     width: 800px;
     /* display: block; */
 }
-#restart,
-#start,
-#getAmmo,
+
 #ammo,
 #timer,
 #score {
@@ -73,12 +71,28 @@ body {
     margin: 5px 55px 15px 87px;
     font-size: 12px;
 }
-
+#restart,
+#start,
+#getAmmo {
+    font-family: 'Press Start 2P', cursive;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(229, 255, 0);
+    text-align: center;
+    background-color: rgba(255, 13, 0, 0.514);
+    border: solid 5px red;
+    height: 55px;
+    width: 55px;
+    border-radius: 90%;
+    margin: 15px 55px 15px 123px;
+    font-size: 8px;
+}
 
 
 #cowboy {
-    height: 50px;
-    width: 35px;
+    height: 80px;
+    width: 55px;
     margin: 25px 0 25px 25px;
 }
 
