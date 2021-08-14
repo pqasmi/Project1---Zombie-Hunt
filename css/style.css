@@ -66,10 +66,10 @@ body {
     background-color: rgba(255, 13, 0, 0.514);
     border: solid 5px red;
     height: 35px;
-    width: 125px;
+    width: 135px;
     border-radius: 25%;
-    margin: 10px 45px 15px 77px;
-    font-size: 12px;
+    margin: 20px 40px 15px 77px;
+    font-size: 11.5px;
 }
 #restart,
 #start,
@@ -81,12 +81,12 @@ body {
     color: rgb(229, 255, 0);
     text-align: center;
     background-color: rgba(255, 13, 0, 0.514);
-    border: solid 5px red;
+    border: solid 2px red;
     height: 35px;
-    width: 125px;
+    width: 135px;
     border-radius: 20%;
-    margin: 15px 25px 15px 93px;
-    font-size: 12px;
+    margin: 10px 25px 10px 93px;
+    font-size: 11.5px;
 }
 
 
@@ -97,13 +97,20 @@ body {
 }
 
 #zombie1,
-#zombie2,
-#zombie3 {
-
-    height: 70px;
-    width: 75px;
+#zombie2
+ {
+    height: 90px;
+    width: 90px;
     float: right;
     margin: 25px 45px 25px 0;
+
+}
+#zombie3
+{
+    height: 75px;
+    width: 75px;
+    float: right;
+    margin: 25px 45px 15px 0;
 
 }
 

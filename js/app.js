@@ -35,7 +35,7 @@ zombie3.addEventListener('click', successHit)
 let player = document.querySelector("#cowboy")
 player.style.display = 'none'
 
-//Add audio clip to my
+//Initialise audio variables
 let audioShot = new Audio('audio/shot.m4a')
 let audioEmptyBarrel = new Audio('audio/emptygun.m4a')
 let audioZombie = new Audio('audio/zom.m4a')
@@ -67,7 +67,7 @@ function moveRight1 () {
             } else if (gameTimer>30) {
                 clearInterval(move1)
             }
-        }, 9) 
+        }, 10) 
     }
 
 function moveRightAgain1 () {
@@ -90,7 +90,7 @@ function moveRight2 () {
             } else if (gameTimer>30) {
                 clearInterval(move2)
             }
-        }, 7) 
+        }, 8) 
     }
 
 function moveRightAgain2 () {
@@ -113,7 +113,7 @@ function moveRight3 () {
             } else if (gameTimer>30) {
                 clearInterval(move3)
             }
-        }, 8) 
+        }, 9) 
     }
 
 function moveRightAgain3 () {
@@ -123,16 +123,6 @@ function moveRightAgain3 () {
     }
 }
 
-
-// function helloMessage () {
-//     let helloUser = document.querySelector("#messageBoard")
-//     helloUser.innerText = "Hello User, Game Started, Hunt Zomombies !!"
-//     helloUser.style.color = "yellow"
-//     helloUser.style.textAlign = "center"
-//     helloUser.style.fontSize = "20px"
-//     // helloUser.style.font = "Press Start 2P"
-
-// }
 function beginTimer () {
     if (gameTimer < 30) {
         gameTimer++
@@ -156,7 +146,8 @@ function beginTimer () {
 
 function reloadShots () {
     if (coins >= 3) {
-    shots = shots + 5
+    audioEmptyBarrel.play()
+    shots = shots + 6
     coins = coins - 3
     shotsSelector.innerText = `Shots: ${shots}`
     coinBoard.innerText = `Coins: ${coins}`
@@ -178,22 +169,17 @@ function successHit (e) {
     shotsSelector.innerText = `Shots: ${shots}`
     } else {
         audioEmptyBarrel.play()
-    }
+    }}
 
-}
-
-function deadZombie (e) {
+    function deadZombie (e) {
     let targetZombie = e.target
     targetZombie.style.display = 'none'
     setTimeout(()=> {targetZombie.style.display = 'block'}, 3000)
 }
-
 class Game {
 constructor (name, ) {
     this.name = name
 }
-
-
 }
 
 
