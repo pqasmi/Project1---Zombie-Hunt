@@ -37,17 +37,16 @@ body {
     width: 800px;
     background: url(https://slm-assets.secondlife.com/assets/21423963/original/gif___The_War_of_the_Elements_-_Apocalyptic_City_V1.gif?1535436431);
     background-size: cover;
-    border-radius: 13%;
+    border-radius: 8%;
     cursor: url(https://image.flaticon.com/icons/png/128/3207/3207593.png) 37 37, auto;
     margin-bottom: 5px;
     margin-top: 5px;
     margin-left: 20px;
-    border: solid red;
+    border: solid 2px yellow;
 }
 #row1,
 #row2,
-#row3,
-#row4
+#row3
  {
     height: 133px;
     width: 800px;
@@ -61,14 +60,14 @@ body {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    color: rgb(229, 255, 0);
+    color: yellow;
     text-align: center;
-    background-color: rgba(255, 13, 0, 0.514);
-    border: solid 5px red;
+    background-color: darkred;
+    border: solid 2px darkred;
     height: 35px;
-    width: 135px;
+    width: 145px;
     border-radius: 25%;
-    margin: 20px 40px 15px 77px;
+    margin: 15px 40px 15px 77px;
     font-size: 11.5px;
 }
 #restart,
@@ -78,14 +77,14 @@ body {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    color: rgb(229, 255, 0);
+    color: yellow;
     text-align: center;
-    background-color: rgba(255, 13, 0, 0.514);
-    border: solid 2px red;
+    background-color: darkred;
+    border: solid 2px darkred;
     height: 35px;
     width: 135px;
     border-radius: 20%;
-    margin: 10px 25px 10px 93px;
+    margin: 20px 25px 10px 93px;
     font-size: 11.5px;
 }
 
