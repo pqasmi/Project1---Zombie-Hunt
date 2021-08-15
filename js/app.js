@@ -2,6 +2,14 @@
 let gameTimer = 0
 let shots = 0
 let coins = 0
+let gameStarted = false
+let successHitZombie = false
+let beginGameTimer
+let gameStatus
+let move1 // declare a setinterval variable for zombie3
+let move2 // declare a setinterval variable for zombie2
+let move3  // declare a setinterval variable for zombie3
+let succesMessageTimer
 
 // Initialise the variables for scoreboard and set values to zero
 let coinBoard = document.querySelector("#score")
@@ -17,23 +25,24 @@ reload.addEventListener('click', reloadShots)
 let gameStart = document.querySelector("#start")
 gameStart.addEventListener('click', game)
 let gameReload = document.querySelector("#restart")
-gameReload.addEventListener('click', restart)
+gameReload.addEventListener('click', reload1)
+let messageWindow = document.querySelector("#messageBoard")
+
 
 //Event listeners for Zombies and event listeners for a successful hit.
 let zombie1 = document.querySelector("#zombie1")
 zombie1.style.display = 'none'
 zombie1.addEventListener('click', successHit)
-
 let zombie2 = document.querySelector("#zombie2")
 zombie2.style.display = 'none'
 zombie2.addEventListener('click', successHit)
-
 let zombie3 = document.querySelector("#zombie3")
 zombie3.style.display = 'none'
 zombie3.addEventListener('click', successHit)
+//Event listerner for unsuccessful hit
 
-let player = document.querySelector("#cowboy")
-player.style.display = 'none'
+let emptyShot= document.querySelector("#screen")
+emptyShot.addEventListener('click', missedShot)
 
 //Initialise audio variables
 let audioShot = new Audio('audio/shot.m4a')
@@ -43,20 +52,64 @@ let audioThunder = new Audio('audio/thunder.m4a')
 
 //Game Begins
 function game () {
+    updateMessageBoard ("Game Started!!! SHOOT ZOMBIES") 
+    gameStarted = true
     audioThunder.play()
-    shots = 5 // initially plater will have 5 shots.
-    setInterval(beginTimer, 1000)
+    shots = 10 // initially plater will have 10 shots.
+    beginGameTimer = setInterval(beginTimer, 1000)
     setTimeout(moveRight1, 1000)
     setTimeout(moveRight2, 2000)
     setTimeout(moveRight3, 4000)
-    
+    console.log(beginGameTimer)
+}
+
+function successHit (e) {
+    if (shots > 0 && gameStarted === true) {
+    successHitZombie = true
+    audioShot.play();
+    deadZombie(e)
+    if (successHitZombie === true) {updateMessageBoard ("Zombie Dead!!!")}
+    // messageRefresh()
+    succesMessageTimer = setInterval(()=>{successHitZombie = false}, 500)
+    shots--
+    coins++
+    // shots--
+    coinBoard.innerText = `Coins: ${coins}`
+    shotsSelector.innerText = `Shots: ${shots}`
+    } else { if(gameStarted === true) {
+        updateMessageBoard ("Reload Ammunition!!!")
+        audioEmptyBarrel.play()
+       console.log("here")
+       console.log(gameStarted)}
+        
+    }}
+
+function deadZombie (e) {
+    updateMessageBoard ("Zombie Dead!!")
+    let targetZombie = e.target
+    targetZombie.style.display = 'none'
+    setTimeout(()=> {targetZombie.style.display = 'block'}, 3000)
+    }
+
+function missedShot () {
+    console.log(gameStarted)
+    if (shots >= 1 && gameStarted == true && successHitZombie === false) {    
+        updateMessageBoard ("Shot Missed!!")
+        audioShot.play();
+        shots--
+        shotsSelector.innerText = `Shots: ${shots}`
+    } else if (shots == 0 && gameStarted == true) {
+        updateMessageBoard ("BUY AMMO!!, you have 0 AMMO")
+        audioEmptyBarrel.play();
+    }
 }
 
 function moveRight1 () {
+    if (gameTimer < 30) {
     zombie1.style.display = 'block'
     audioZombie.play()
     let pos1 = 0
-    let move1 = setInterval(() => {
+    move1 = setInterval(() => {
             zombie1.style.marginRight = pos1 + "px"
             pos1++
             
@@ -67,20 +120,21 @@ function moveRight1 () {
             } else if (gameTimer>30) {
                 clearInterval(move1)
             }
-        }, 10) 
-    }
+        }, 11) 
+}}
 
 function moveRightAgain1 () {
     if (gameTimer < 30) {
     moveRight1() } else {
-        clearInterval(gametimer==30)
+        clearInterval(move1)
     }
 }
 
 function moveRight2 () {
+    if (gameTimer < 30 ) {
     zombie2.style.display = 'block'
     let pos2 = 0
-    let move2 = setInterval(() => {
+    move2 = setInterval(() => {
             zombie2.style.marginRight = pos2 + "px"
             pos2++
             if (pos2 > 700) {
@@ -90,8 +144,8 @@ function moveRight2 () {
             } else if (gameTimer>30) {
                 clearInterval(move2)
             }
-        }, 8) 
-    }
+        }, 9) 
+}}
 
 function moveRightAgain2 () {
     if (gameTimer < 30) {
@@ -101,9 +155,10 @@ function moveRightAgain2 () {
 }
 
 function moveRight3 () {
+    if(gameTimer < 30) {
     zombie3.style.display = 'block'
     let pos3 = 0
-    let move3 = setInterval(() => {
+    move3 = setInterval(() => {
             zombie3.style.marginRight = pos3 + "px"
             pos3++
             if (pos3 > 700) {
@@ -113,8 +168,8 @@ function moveRight3 () {
             } else if (gameTimer>30) {
                 clearInterval(move3)
             }
-        }, 9) 
-    }
+        }, 10) 
+}}
 
 function moveRightAgain3 () {
     if (gameTimer < 30) {
@@ -131,52 +186,85 @@ function beginTimer () {
         shotsSelector.innerText = `Shots: ${shots}`
     } else {
         clearInterval(gameTimer = 30)
-        if (gameTimer = 30 && coins >= 15) {
+        if (gameTimer == 30 && coins >= 15) {
+            gameStatus = "Game WON!!!" 
             restart()
-            alert("user won!!") 
-            alert = function() {}
-            
         } else {
+            gameStatus = "Game Lost!!!" 
             restart()
-            alert ("user lost!!")
-            alert = function() {}
         }
     }
 }
 
-function reloadShots () {
-    if (coins >= 3) {
-    audioEmptyBarrel.play()
-    shots = shots + 6
-    coins = coins - 3
-    shotsSelector.innerText = `Shots: ${shots}`
-    coinBoard.innerText = `Coins: ${coins}`
-    }
-
+function updateMessageBoard (message) {
+    messageWindow.innerHTML = message 
+    messageWindow.style.color = "red"
+    messageWindow.style.backgroundColor = "yellow"
+    
 }
 
+
+function reloadShots () {
+    if (gameStarted == true) {
+        if (coins >= 2) {
+            updateMessageBoard ("AMMO Reloaded, GO SHOOT ZOMBIES!!")
+            audioEmptyBarrel.play()
+            shots = shots + 6
+            coins = coins - 2
+            shotsSelector.innerText = `Shots: ${shots}`
+            coinBoard.innerText = `Coins: ${coins}`
+        } else {
+            updateMessageBoard("YOU DONT HAVE ENOUGH COINS TO BUY AMMO, Go SHOOT ZOMBIES")
+            audioEmptyBarrel.play()
+        }
+    } else {
+        messageWindow.innerText = "game not started, press 'Start' button to PLAY"
+        messageWindow.style.backgroundColor = "yellow"
+        messageWindow.style.color = 'red'
+        setInterval(()=> {
+        messageWindow.innerText = "HIT 'START' to SHOOT ZOMBIES,                        Get Ammo: 6 shots for 2 coins !!!     Collect 15 coins to win!!"
+        messageWindow.style.backgroundColor = "darkRed"
+        messageWindow.style.color = 'yellow'
+        }, 2000)
+    }}
+
+
 function restart () {
+    clearInterval(beginGameTimer)
+    clearInterval(succesMessageTimer)
+    updateMessageBoard(gameStatus)
+    gameStarted = false
+    row1.innerHTML = 'none'
+    row2.innerHTML = 'none'
+    row3.innerHTML = 'none'
+    audioZombie.pause()
+    clearInterval(move1)
+    clearInterval(move2)
+    clearInterval(move3)
+    resetScore()
+}
+
+function resetScore () {
+    gameTimer = 30
+    coinBoard.innerText = `Coins: ${coins}`
+    setTimeout(()=> {
+    messageWindow.innerHTML = "Press Re-Start to refresh Screen"
+    messageWindow.style.color = 'yellow'
+    messageWindow.style.backgroundColor = 'orange'
+    gameReload.style.backgroundColor = 'yellow'
+    gameReload.style.color = 'red'
+
+    }, 4000)
+    shotsSelector.innerText = `Shots: ${shots}`
+    timerStart.innerText = `Timer: ${gameTimer}`
+}
+
+function reload1 () {
     location.reload();
 }
 
-function successHit (e) {
-    if (shots > 0) {
-    deadZombie(e)
-    audioShot.play();
-    coins++
-    shots--
-    coinBoard.innerText = `Coins: ${coins}`
-    shotsSelector.innerText = `Shots: ${shots}`
-    } else {
-        audioEmptyBarrel.play()
-    }}
 
-    function deadZombie (e) {
-    let targetZombie = e.target
-    targetZombie.style.display = 'none'
-    setTimeout(()=> {targetZombie.style.display = 'block'}, 3000)
-}
-class Game {
+    class Game {
 constructor (name, ) {
     this.name = name
 }

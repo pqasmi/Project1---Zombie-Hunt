@@ -3,7 +3,7 @@ h1 {
     text-align: left;
     color: red;
     background-color: black;
-    margin: 10px 0 10px 130px;
+    margin: 10px 0 10px 20px;
 }
 #logo {
     height: 55px;
@@ -17,19 +17,6 @@ body {
 	background-color: black;
     display: inline-flex;
 }
-#messageBoard {
-    height: 50px;
-    width: 800px;
-    background: yellow;
-    color: red;
-    background-size: cover;
-    border-radius: 25px;
-    cursor: url() 67 67 auto;
-    margin-bottom: 23px;
-    margin-top: 25px;
-    margin-left: 20px;
-    border: solid red;
-}
 
 
 #screen {
@@ -38,7 +25,7 @@ body {
     background: url(https://slm-assets.secondlife.com/assets/21423963/original/gif___The_War_of_the_Elements_-_Apocalyptic_City_V1.gif?1535436431);
     background-size: cover;
     border-radius: 8%;
-    cursor: url(https://image.flaticon.com/icons/png/128/3207/3207593.png) 37 37, auto;
+    cursor: url(https://image.flaticon.com/icons/png/128/3207/3207593.png) 30 30, auto;
     margin-bottom: 5px;
     margin-top: 5px;
     margin-left: 20px;
@@ -50,7 +37,6 @@ body {
  {
     height: 133px;
     width: 800px;
-    /* display: block; */
 }
 
 #ammo,
@@ -70,7 +56,11 @@ body {
     margin: 15px 40px 15px 77px;
     font-size: 11.5px;
 }
-#restart,
+/* #headline {
+    display: inline-flex;
+    flex-direction: column;
+} */
+#messageBoard,
 #start,
 #getAmmo {
     font-family: 'Press Start 2P', cursive;
@@ -83,11 +73,39 @@ body {
     border: solid 2px darkred;
     height: 35px;
     width: 135px;
-    border-radius: 20%;
-    margin: 20px 25px 10px 93px;
+    border-radius: 10px;
+    margin: 20px 25px 10px 25px;
     font-size: 11.5px;
 }
 
+#messageBoard {
+    width: 390px;
+    height: 65px;
+    margin-top: 35px;
+    text-align: center;
+    padding-block-start: 2px;
+    font-size: 10px;
+}
+#restart {
+    font-family: 'Press Start 2P', cursive;
+    display: inline;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-color: darkred;
+    border: solid 2px darkred;
+    height: 35px;
+    width: 135px;
+    border-radius: 90px;
+    margin: -10px 0px 20px 40px;
+    font-size: 9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#container {
+    text-align: center;
+    margin: 0 0 10px 0;
+}
 
 #cowboy {
     height: 80px;
@@ -113,7 +131,4 @@ body {
 
 }
 
-#stats {
-    width: 900px;
-}
 
