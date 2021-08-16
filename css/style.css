@@ -8,7 +8,7 @@ body {
 #headline {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 h1 {
@@ -21,7 +21,8 @@ h1 {
     width: 115px;
     float: left;
     padding-right: 10px;
-    margin-top: 10px
+    margin-top: 10px;
+  
  
 }
 
@@ -98,15 +99,17 @@ h1 {
 }
 #restart {
     font-family: 'Press Start 2P', cursive;
-    color: greenyellow;
+    color: red;
     text-align: center;
-    background-color: red;
+    background-color: yellow;
     border: solid 2px darkred;
     height: 27px;
-    width: 120px;
+    width: 100px;
     border-radius: 90px;
-    font-size: 9px;
-    padding-top: 12px;
+    font-size: 11.5px;
+    padding-top: 8px;
+    margin-top: 28px;
+    margin-left: 89px;
 }
 
 #zombie1,

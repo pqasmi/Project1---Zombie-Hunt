@@ -202,6 +202,8 @@ function updateMessageBoard (message) {
     messageWindow.innerHTML = message 
     messageWindow.style.color = "red"
     messageWindow.style.backgroundColor = "yellow"
+    messageWindow.style.paddingTop = "15px"
+    messageWindow.style.fontSize = "14px"
     
 }
 
