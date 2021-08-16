@@ -36,7 +36,6 @@ h1 {
     border-radius: 8%;
     cursor: url(https://image.flaticon.com/icons/png/128/3207/3207593.png) 30 30, auto;
     border: solid 2px yellow;
-
     margin: 5px auto;
 
 }
@@ -99,14 +98,15 @@ h1 {
 }
 #restart {
     font-family: 'Press Start 2P', cursive;
-    color: white;
+    color: greenyellow;
     text-align: center;
-    background-color: darkred;
+    background-color: red;
     border: solid 2px darkred;
-    height: 35px;
-    width: 135px;
+    height: 27px;
+    width: 120px;
     border-radius: 90px;
     font-size: 9px;
+    padding-top: 12px;
 }
 
 #zombie1,
