@@ -1,6 +1,5 @@
 # Project1---Zombie-Hunt
 
 to do:
-research toggle class
-event target use
-function passing as a param.
+Add a message board
+add a landing page where user enters the name

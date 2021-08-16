@@ -112,9 +112,10 @@ function missedShot () {
 }
 
 function refreshMessage () {
+    if (gameTimer < 29) {
     setTimeout(()=>{
     updateMessageBoard("SHOOT ZOMBIES and SAVE THE PLANET")
-    },500)
+    },500)}
 }
 
 function moveRight1 () {
@@ -199,7 +200,7 @@ function beginTimer () {
         shotsSelector.innerText = `Shots: ${shots}`
     } else {
         clearInterval(gameTimer = 30)
-        if (gameTimer == 30 && coins >= 12) {
+        if (gameTimer == 30 && coins >= 10) {
             gameStatus = "Game WON!!!" 
             restart()
         } else {
