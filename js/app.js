@@ -11,6 +11,7 @@ let move2 // declare a setinterval variable for zombie2
 let move3  // declare a setinterval variable for zombie3
 let succesMessageTimer
 
+
 // Initialise the variables for scoreboard and set values to zero
 let coinBoard = document.querySelector("#score")
 coinBoard.innerText = `Coins: ${coins}`
@@ -71,8 +72,9 @@ function successHit (e) {
     audioShot.play();
     deadZombie(e)
     if (successHitZombie === true) {updateMessageBoard ("Zombie Dead!!!")}
-    // messageRefresh()
-    succesMessageTimer = setInterval(()=>{successHitZombie = false}, 500)
+    succesMessageTimer = setInterval(()=>{successHitZombie = false}
+    , 500)
+    refreshMessage()
     shots--
     coins++
     // shots--
@@ -81,10 +83,12 @@ function successHit (e) {
     } else { if(gameStarted === true) {
         updateMessageBoard ("Reload Ammunition!!!")
         audioEmptyBarrel.play()
-       console.log("here")
-       console.log(gameStarted)}
+        console.log("here")
+        console.log(gameStarted)}
         
-    }}
+    }
+    
+}
 
 function deadZombie (e) {
     updateMessageBoard ("Zombie Dead!!")
@@ -97,6 +101,7 @@ function missedShot () {
     console.log(gameStarted)
     if (shots >= 1 && gameStarted == true && successHitZombie === false) {    
         updateMessageBoard ("Shot Missed!!")
+        refreshMessage()
         audioShot.play();
         shots--
         shotsSelector.innerText = `Shots: ${shots}`
@@ -104,6 +109,12 @@ function missedShot () {
         updateMessageBoard ("BUY AMMO!!, you have 0 AMMO")
         audioEmptyBarrel.play();
     }
+}
+
+function refreshMessage () {
+    setTimeout(()=>{
+    updateMessageBoard("SHOOT ZOMBIES and SAVE THE PLANET")
+    },1500)
 }
 
 function moveRight1 () {
@@ -202,11 +213,9 @@ function updateMessageBoard (message) {
     messageWindow.innerHTML = message 
     messageWindow.style.color = "red"
     messageWindow.style.backgroundColor = "yellow"
-    messageWindow.style.paddingTop = "15px"
-    messageWindow.style.fontSize = "14px"
-    
+    messageWindow.style.paddingTop = "10px"
+    messageWindow.style.fontSize = "14px" 
 }
-
 
 function reloadShots () {
     if (gameStarted == true) {
@@ -222,14 +231,12 @@ function reloadShots () {
             audioEmptyBarrel.play()
         }
     } else {
-        messageWindow.innerText = "game not started, press 'Start' button to PLAY"
+        messageWindow.innerHTML = "<br>Game Not started, <br><br>Press 'Start' button to PLAY"
         messageWindow.style.backgroundColor = "yellow"
         messageWindow.style.color = 'red'
+        messageWindow.style.marginTop = "12px"
         setInterval(()=> {
-        messageWindow.innerText = "HIT 'START' to SHOOT ZOMBIES,                        Get Ammo: 6 shots for 2 coins !!!     Collect 15 coins to win!!"
-        messageWindow.style.backgroundColor = "darkRed"
-        messageWindow.style.color = 'yellow'
-        }, 2000)
+            reload1()}, 2000)
     }}
 
 
