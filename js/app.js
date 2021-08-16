@@ -26,6 +26,8 @@ let gameStart = document.querySelector("#start")
 gameStart.addEventListener('click', game)
 let gameReload = document.querySelector("#restart")
 gameReload.addEventListener('click', reload1)
+gameReload.style.visibility = 'hidden'
+
 let messageWindow = document.querySelector("#messageBoard")
 
 
@@ -56,11 +58,11 @@ function game () {
     gameStarted = true
     audioThunder.play()
     shots = 10 // initially plater will have 10 shots.
-    beginGameTimer = setInterval(beginTimer, 1000)
+    beginGameTimer = setInterval(beginTimer, 100)
     setTimeout(moveRight1, 1000)
     setTimeout(moveRight2, 2000)
     setTimeout(moveRight3, 4000)
-    console.log(beginGameTimer)
+    gameReload.style.visibility = 'visible'
 }
 
 function successHit (e) {
@@ -251,8 +253,8 @@ function resetScore () {
     messageWindow.innerHTML = "Press Re-Start to refresh Screen"
     messageWindow.style.color = 'yellow'
     messageWindow.style.backgroundColor = 'orange'
-    gameReload.style.backgroundColor = 'yellow'
-    gameReload.style.color = 'red'
+    gameReload.style.backgroundColor = "yellow"
+    gameReload.style.color = "red"
 
     }, 4000)
     shotsSelector.innerText = `Shots: ${shots}`
