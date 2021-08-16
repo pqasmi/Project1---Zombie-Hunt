@@ -114,7 +114,7 @@ function missedShot () {
 function refreshMessage () {
     setTimeout(()=>{
     updateMessageBoard("SHOOT ZOMBIES and SAVE THE PLANET")
-    },1500)
+    },500)
 }
 
 function moveRight1 () {
@@ -199,7 +199,7 @@ function beginTimer () {
         shotsSelector.innerText = `Shots: ${shots}`
     } else {
         clearInterval(gameTimer = 30)
-        if (gameTimer == 30 && coins >= 15) {
+        if (gameTimer == 30 && coins >= 12) {
             gameStatus = "Game WON!!!" 
             restart()
         } else {
@@ -259,13 +259,12 @@ function resetScore () {
     gameTimer = 30
     coinBoard.innerText = `Coins: ${coins}`
     setTimeout(()=> {
-    messageWindow.innerHTML = "Press Re-Start to refresh Screen"
+    messageWindow.innerHTML = "Press Re-Start to Play Again"
     messageWindow.style.color = 'yellow'
     messageWindow.style.backgroundColor = 'orange'
     gameReload.style.backgroundColor = "yellow"
     gameReload.style.color = "red"
-
-    }, 4000)
+    }, 6000)
     shotsSelector.innerText = `Shots: ${shots}`
     timerStart.innerText = `Timer: ${gameTimer}`
 }

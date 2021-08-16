@@ -37,7 +37,7 @@ h1 {
     background-size: cover;
     border-radius: 8%;
     cursor: url(https://image.flaticon.com/icons/png/128/3207/3207593.png) 30 30, auto;
-    border: solid 2px yellow;
+    border: solid 2px darkred;
     margin: 5px auto;
 
 }
