@@ -58,7 +58,7 @@ function game () {
     gameStarted = true
     audioThunder.play()
     shots = 10 // initially plater will have 10 shots.
-    beginGameTimer = setInterval(beginTimer, 100)
+    beginGameTimer = setInterval(beginTimer, 1000)
     setTimeout(moveRight1, 1000)
     setTimeout(moveRight2, 2000)
     setTimeout(moveRight3, 4000)
